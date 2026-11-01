@@ -21,7 +21,8 @@ const region = (sq) => {
   return { x, y: BOARD_Y + (8 - r) * SQH, w, h: SQH };
 };
 
-const img = (src, w, h, alt) => `<img src="${src}" width="${w * S}" height="${h * S}" alt="${alt}">`;
+// align="top" keeps rows flush: on the baseline, each row would sit above a gap.
+const img = (src, w, h, alt) => `<img src="${src}" width="${w * S}" height="${h * S}" align="top" alt="${alt}">`;
 const link = (href, inner) => `<a href="${href}">${inner}</a>`;
 
 export function issueUrl(move, san) {
