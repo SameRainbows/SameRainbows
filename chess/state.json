@@ -1,0 +1,29 @@
+{
+  "game": 1,
+  "fen": "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2",
+  "moves": [
+    {
+      "san": "e4",
+      "by": "SameRainbows"
+    },
+    {
+      "san": "Nf6",
+      "by": "robot"
+    }
+  ],
+  "last": {
+    "from": "g8",
+    "to": "f6",
+    "san": "Nf6",
+    "color": "b",
+    "piece": "n",
+    "captured": null,
+    "captureSquare": "f6"
+  },
+  "score": {
+    "robot": 0,
+    "visitors": 0,
+    "draws": 0
+  },
+  "result": null
+}
