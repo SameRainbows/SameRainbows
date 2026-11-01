@@ -1,0 +1,52 @@
+name: Chess
+
+on:
+  issues:
+    types: [opened]
+  push:
+    branches: [main]
+    paths: ["chess/*.mjs", ".github/workflows/chess.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+# One move at a time, in order. Moves are never cancelled while waiting.
+concurrency:
+  group: chess
+  cancel-in-progress: false
+
+jobs:
+  move:
+    if: github.event_name != 'issues' || startsWith(github.event.issue.title, 'chess:')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - name: Play the move and let the robot reply
+        if: github.event_name == 'issues'
+        run: node chess/play.mjs
+        env:
+          CHESS_TITLE: ${{ github.event.issue.title }}
+          CHESS_AUTHOR: ${{ github.event.issue.user.login }}
+      - name: Redraw the board
+        if: github.event_name != 'issues'
+        run: node chess/render.mjs
+      - name: Commit the new position
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A README.md chess
+          git reset -q chess/reply.md || true
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -q -m "Chess: ${{ github.event_name == 'issues' && format('move from issue #{0}', github.event.issue.number) || 'redraw the board' }}"
+          git push -q
+      - name: Reply on the issue and close it
+        if: github.event_name == 'issues'
+        run: gh issue close "${{ github.event.issue.number }}" --comment "$(cat chess/reply.md)"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
