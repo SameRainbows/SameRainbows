@@ -1,1 +1,0 @@
-{ "name": "samerainbows-profile", "private": true, "type": "module", "dependencies": { "chess.js": "1.4.0" } }
