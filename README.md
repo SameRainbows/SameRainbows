@@ -1,12 +1,11 @@
 # Mehmet Dedeler
 
-I'm 14, making apps, simulations and tools. More at **[mehmetdedeler.com](https://mehmetdedeler.com)**.
+I'm 14, building apps, simulations and tools. More at **[mehmetdedeler.com](https://mehmetdedeler.com)**.
 
-- **[Typd](https://typd.mehmetdedeler.com)**: voice dictation that runs on your computer. Free and [open source](https://github.com/SameRainbows/typd-app).
-- **Kairos**: an Android app of 6,500 sourced quotes, in closed testing on Google Play.
+- **[Typd](https://typd.mehmetdedeler.com)**: offline voice dictation that runs on your computer. Free, and the [app is open source](https://github.com/SameRainbows/typd-app).
+- **[Kairos](https://kairos.mehmetdedeler.com)**: 6,500 attributed quotes — offline in the browser and as an [Android APK](https://kairos.mehmetdedeler.com/android/).
 - **[Tally](https://tally.mehmetdedeler.com)**: counts your reps through your camera, in the browser. [Code](https://github.com/SameRainbows/Tally).
-- **[Orbital](https://github.com/SameRainbows/Orbital)**: a gravity sandbox in Python.
-- **[Formicai](https://github.com/SameRainbows/Formicai)**: ant colonies whose behaviour is evolved, not programmed.
+- **[Orbital](https://github.com/SameRainbows/Orbital)**: a gravity sandbox built with only Python's standard library.
 
 Email: [mehmet@mehmetdedeler.com](mailto:mehmet@mehmetdedeler.com)
 
